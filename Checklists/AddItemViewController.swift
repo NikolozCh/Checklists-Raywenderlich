@@ -14,4 +14,12 @@ class AddItemViewController: UITableViewController {
         
         navigationItem.largeTitleDisplayMode = .never
     }
+    
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) -> Void {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func doneButton(_ sender: UIBarButtonItem) -> Void {
+        navigationController?.popViewController(animated: true)
+    }
 }
