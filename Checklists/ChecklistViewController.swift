@@ -72,6 +72,13 @@ class ChecklistViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        items.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    // MARK: - Configuration methods
     func configureCheckmark(
         for cell: UITableViewCell,
         with item: ChecklistItem
@@ -89,5 +96,18 @@ class ChecklistViewController: UITableViewController {
     ) -> Void {
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item.text
+    }
+    
+    // MARK: - Navigation bar's actions
+    @IBAction func navBarAddItem(_ sender: UIBarButtonItem) {
+        let newRowIndex = items.count
+        
+        let newItem = ChecklistItem()
+        newItem.text = "New Checklistitem <3"
+        items.append(newItem)
+        
+        let newIndexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [newIndexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
     }
 }
