@@ -17,11 +17,17 @@ class AddItemViewController: UITableViewController {
         navigationItem.largeTitleDisplayMode = .never
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
     @IBAction func cancelButton(_ sender: UIBarButtonItem) -> Void {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func doneButton(_ sender: UIBarButtonItem) -> Void {
+    @IBAction func doneButton() -> Void {
+        print("Hey bro, you have typed: \(textField.text!)")
         
         navigationController?.popViewController(animated: true)
     }
