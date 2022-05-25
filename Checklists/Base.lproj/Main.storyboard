@@ -47,7 +47,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="Xxf-dM-t4I">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="s8p-KI-iot">
                             <connections>
-                                <segue destination="dVj-xv-t1O" kind="show" id="Ig6-vy-7uk"/>
+                                <segue destination="dVj-xv-t1O" kind="show" identifier="AddItem" id="Ig6-vy-7uk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
