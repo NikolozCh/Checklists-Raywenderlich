@@ -42,9 +42,12 @@
                                         <constraint firstItem="yMZ-tx-QCE" firstAttribute="top" secondItem="Vxv-Kh-G3K" secondAttribute="top" constant="12" id="bVD-HL-lQJ"/>
                                         <constraint firstItem="qZi-j0-PeP" firstAttribute="top" secondItem="Vxv-Kh-G3K" secondAttribute="topMargin" constant="12" id="dLP-Lk-dBD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="qZi-j0-PeP" secondAttribute="bottom" constant="12" id="fDp-3c-LVZ"/>
-                                        <constraint firstItem="qZi-j0-PeP" firstAttribute="leading" secondItem="yMZ-tx-QCE" secondAttribute="trailing" constant="8" id="m40-7E-jcS"/>
+                                        <constraint firstItem="qZi-j0-PeP" firstAttribute="leading" secondItem="yMZ-tx-QCE" secondAttribute="trailing" constant="8" id="lTo-Ma-kVW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dVj-xv-t1O" kind="show" identifier="EditItem" trigger="accessoryAction" id="hkn-WO-guF"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -148,6 +151,9 @@
             <point key="canvasLocation" x="68" y="-18.440779610194905"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ig6-vy-7uk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
