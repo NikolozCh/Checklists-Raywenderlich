@@ -23,13 +23,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="322" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZi-j0-PeP">
-                                            <rect key="frame" x="37" y="23" width="41.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZi-j0-PeP">
+                                            <rect key="frame" x="37" y="23" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-tx-QCE">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-tx-QCE">
                                             <rect key="frame" x="12" y="12" width="17" height="43"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
@@ -43,6 +43,7 @@
                                         <constraint firstItem="qZi-j0-PeP" firstAttribute="top" secondItem="Vxv-Kh-G3K" secondAttribute="topMargin" constant="12" id="dLP-Lk-dBD"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="qZi-j0-PeP" secondAttribute="bottom" constant="12" id="fDp-3c-LVZ"/>
                                         <constraint firstItem="qZi-j0-PeP" firstAttribute="leading" secondItem="yMZ-tx-QCE" secondAttribute="trailing" constant="8" id="lTo-Ma-kVW"/>
+                                        <constraint firstItem="qZi-j0-PeP" firstAttribute="trailing" secondItem="Vxv-Kh-G3K" secondAttribute="trailing" id="tjb-3v-9Go"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
