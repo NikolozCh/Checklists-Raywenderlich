@@ -111,27 +111,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.insertRows(at: [IndexPath(row: newRowNumber, section: 0)], with: .automatic)
         navigationController?.popViewController(animated: true)
     }
-    
-    func addItemViewControllerEditItem(_ controller: AddItemViewController, didFinishEditing item: ChecklistItem, itemIndex index: Int) {
-        items.remove(at: index)
-        items.insert(item, at: index)
-        
-        let indexPaths = [IndexPath(row: index, section: 0)]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-        tableView.insertRows(at: indexPaths, with: .automatic)
-    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddItem" || segue.identifier == "EditItem" {
+        if segue.identifier == "AddItem" {
             let controller = segue.destination as! AddItemViewController
             controller.delegate = self
-            if(segue.identifier == "EditItem") {
-                controller.isEditingChecklists = true
-                controller.intEditing = 0
-            }
-            else {
-                controller.isEditingChecklists = false
-            }
         }
     }
 }

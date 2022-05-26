@@ -15,12 +15,6 @@ protocol AddItemViewControllerDelegate: AnyObject {
     _ controller: AddItemViewController,
     didFinishAdding item: ChecklistItem
     )
-    
-    func addItemViewControllerEditItem(
-    _ controller: AddItemViewController,
-    didFinishEditing item: ChecklistItem,
-    itemIndex index: Int
-    )
 }
 
 
@@ -53,10 +47,6 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         let item: ChecklistItem = ChecklistItem()
         item.text = textField.text!
         
-        if isEditingChecklists! {
-            delegate?.addItemViewControllerEditItem(self, didFinishEditing: item, itemIndex: intEditing!)
-            return
-        }
         delegate?.addItemViewController(self, didFinishAdding: item)
     }
     
