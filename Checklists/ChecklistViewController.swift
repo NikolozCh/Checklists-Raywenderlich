@@ -140,4 +140,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
     }
+    
+    // MARK: - File save & load methods
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
 }
