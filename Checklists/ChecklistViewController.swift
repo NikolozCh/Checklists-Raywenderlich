@@ -14,37 +14,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         loadChecklistItems()
-//        let item1 = ChecklistItem()
-//        item1.text = "Walk the dog"
-//        items.append(item1)
-//
-//        let item2 = ChecklistItem()
-//        item2.text = "Brush my teeth"
-//        item2.checked = true
-//        items.append(item2)
-//
-//        let item3 = ChecklistItem()
-//        item3.text = "Learn iOS development"
-//        item3.checked = true
-//        items.append(item3)
-//
-//        let item4 = ChecklistItem()
-//        item4.text = "Soccer practice"
-//        items.append(item4)
-//
-//        let item5 = ChecklistItem()
-//        item5.text = "Eat ice cream"
-//        items.append(item5)
-//
-//        let item6 = ChecklistItem()
-//        item6.text = "iOS development is fun!"
-//        item6.checked = true
-//        items.append(item6)
-//
-//        let item7 = ChecklistItem()
-//        item7.text = "Please, learn programming"
-//        item7.checked = true
-//        items.append(item7)
         
 //        print("Documents folder is: \(documentsDirectory())")
 //        print("Checklist.plist file is: \(dataFilePath())")
@@ -73,12 +42,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        saveChecklistItems()
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         items.remove(at: indexPath.row)
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        saveChecklistItems()
     }
     
 //    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -110,7 +81,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     // MARK: - Item Detail View Controller's Delegate functions
     func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
-        saveChecklistItems()
+//        saveChecklistItems()
     }
     
     func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
