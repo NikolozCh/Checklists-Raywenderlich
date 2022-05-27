@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChecklistItem: Equatable {
+class ChecklistItem: Equatable, Codable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.text == rhs.text && lhs.checked == rhs.checked
     }
