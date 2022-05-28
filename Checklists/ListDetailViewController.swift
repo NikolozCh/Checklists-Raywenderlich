@@ -53,4 +53,23 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
             delegate?.listDetailViewController(self, didFinishdAdding: checkList)
         }
     }
+    
+    // MARK: - table view overridden methods
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
+    // MARK: - text field delegate for enabling/disabling "Done" button
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentString: String = textField.text!
+        let stringRange = Range(range, in: currentString)!
+        let newText = currentString.replacingCharacters(in: stringRange, with: string)
+        doneBarButton.isEnabled = !newText.isEmpty
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        doneBarButton.isEnabled = false
+        return true
+    }
 }
