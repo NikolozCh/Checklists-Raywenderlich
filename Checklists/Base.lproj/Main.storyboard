@@ -78,7 +78,7 @@
                             <outlet property="delegate" destination="grO-lA-Vwv" id="x0j-OU-dBG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="(Name of the Checklist)" id="Xxf-dM-t4I" userLabel="Checklist">
+                    <navigationItem key="navigationItem" title="(Name of the Checklist)" largeTitleDisplayMode="never" id="Xxf-dM-t4I" userLabel="Checklist">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="s8p-KI-iot">
                             <connections>
                                 <segue destination="dVj-xv-t1O" kind="show" identifier="AddItem" id="Ig6-vy-7uk"/>

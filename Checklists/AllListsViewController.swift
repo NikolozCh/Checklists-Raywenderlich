@@ -15,7 +15,7 @@ class AllListsViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     // MARK: - tableView overridden methods
