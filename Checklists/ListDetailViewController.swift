@@ -37,4 +37,20 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         textField.becomeFirstResponder()
     }
+    
+    // MARK: - navigation bar button IBActions
+    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+        delegate?.listDetailViewControllerDidCancel(self)
+    }
+    
+    @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
+        if let checklistToEdit = checklistToEdit {
+            checklistToEdit.name = textField.text!
+            delegate?.listDetailViewController(self, didFinishEditing: checklistToEdit)
+        }
+        else {
+            let checkList = Checklist(listItemName: textField.text!)
+            delegate?.listDetailViewController(self, didFinishdAdding: checkList)
+        }
+    }
 }
