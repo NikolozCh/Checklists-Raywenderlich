@@ -10,6 +10,7 @@ import UIKit
 class AllListsViewController: UITableViewController {
 
     let cellIdentifier: String = "ChecklistCell"
+    let checklistSegueIdentifier: String = "ShowChecklist"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,5 +28,9 @@ class AllListsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.textLabel!.text = "List \(indexPath.row)"
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: checklistSegueIdentifier, sender: nil)
     }
 }
