@@ -43,7 +43,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
         delegate?.listDetailViewControllerDidCancel(self)
     }
     
-    @IBAction func doneBarButton(_ sender: UIBarButtonItem) {
+    @IBAction func doneBarButtonAction() {
         if let checklistToEdit = checklistToEdit {
             checklistToEdit.name = textField.text!
             delegate?.listDetailViewController(self, didFinishEditing: checklistToEdit)
