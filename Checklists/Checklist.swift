@@ -13,9 +13,10 @@ class Checklist: Equatable {
     }
     
     var name: String
+    var items: [ChecklistItem]
     
     init(listItemName name: String) {
         self.name = name
-//        super.init()
+        self.items = [ChecklistItem]()
     }
 }
