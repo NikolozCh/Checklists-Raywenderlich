@@ -54,7 +54,6 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButton() -> Void {
-        print("Hey bro, you have typed: \(textField.text!)")
         let item: ChecklistItem = ChecklistItem()
         item.text = textField.text!
         

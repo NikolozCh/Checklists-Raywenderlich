@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Checklist: Equatable {
+class Checklist: Equatable, Codable {
     static func == (lhs: Checklist, rhs: Checklist) -> Bool {
         return lhs.name == rhs.name
     }
