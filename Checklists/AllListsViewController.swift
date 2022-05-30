@@ -32,6 +32,13 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         list = Checklist(listItemName: "To Do")
         lists.append(list)
+        
+        
+        for list in lists {
+            let item = ChecklistItem()
+            item.text = "Item for \(list.name)"
+            list.items.append(item)
+        }
     }
 
     // MARK: - tableView overridden methods
