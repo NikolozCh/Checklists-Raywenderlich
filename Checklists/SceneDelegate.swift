@@ -9,6 +9,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    let dataModel = DataModel()
     var window: UIWindow?
 
 
@@ -17,6 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let navigationController = window!.rootViewController as! UINavigationController
+        let controller = navigationController.viewControllers[0] as! AllListsViewController
+        controller.dataModel = self.dataModel
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,9 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // MARK: - Methods by me
     func saveData() {
-        let nvController = window!.rootViewController as! UINavigationController
-        let controller = nvController.viewControllers[0] as! AllListsViewController
-        controller.saveChecklists()
+        dataModel.saveChecklists()
     }
     
 }
