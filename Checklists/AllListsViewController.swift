@@ -20,7 +20,19 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        
+        navigationController?.delegate = self
+        
+        let index = UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        if index != -1 {
+            let checklist = dataModel.lists[index]
+            performSegue(withIdentifier: checklistSegueIdentifier, sender: checklist)
+        }
     }
 
     // MARK: - tableView overridden methods
