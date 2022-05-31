@@ -12,6 +12,7 @@ class DataModel {
     
     init() {
         loadChecklists()
+        print(dataFilePath())
         registerDefaults()
         handleFirstTime()
     }
