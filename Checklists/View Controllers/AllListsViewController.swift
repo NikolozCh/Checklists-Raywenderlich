@@ -65,7 +65,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             cell.detailTextLabel!.text = "All done!"
         }
         else {
-            cell.detailTextLabel!.text = "\(uncheckedItemsCount) Remaining"
+            cell.detailTextLabel!.text = "\(uncheckedItemsCount) Remaining "
         }
         
         cell.accessoryType = .detailDisclosureButton
@@ -112,19 +112,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishdAdding checklist: Checklist) {
-        let newItemIndex: Int = dataModel.lists.count
         dataModel.lists.append(checklist)
-        let newItemIndexPath = IndexPath(row: newItemIndex, section: 0)
-        tableView.insertRows(at: [newItemIndexPath], with: .automatic)
+        dataModel.sortChecklists()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist) {
-        if let itemIndex = dataModel.lists.firstIndex(of: checklist) {
-            if let cell = tableView.cellForRow(at: IndexPath(item: itemIndex, section: 0)) {
-                cell.textLabel!.text = checklist.name
-            }
-        }
+        dataModel.sortChecklists()
+        tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
     // MARK: - Navigation Controller delegate methods
