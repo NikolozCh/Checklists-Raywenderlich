@@ -14,10 +14,12 @@ class Checklist: Equatable, Codable {
     
     var name: String
     var items: [ChecklistItem]
+    var iconName: String!
     
     init(listItemName name: String) {
         self.name = name
         self.items = [ChecklistItem]()
+        self.iconName = ""
     }
     
     func countUncheckedItems() -> Int {
