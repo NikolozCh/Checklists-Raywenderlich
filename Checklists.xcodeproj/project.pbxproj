@@ -68,21 +68,45 @@
 		B3531AAB283A59B100C84705 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
+				B3B8A4DF28467B1B00C36248 /* Resources */,
+				B3B8A4DE28467B0B00C36248 /* Data Models */,
+				B3B8A4DD28467AF800C36248 /* View Controllers */,
 				B3531AAC283A59B100C84705 /* AppDelegate.swift */,
-				B3531AAE283A59B100C84705 /* SceneDelegate.swift */,
-				B3531AB0283A59B100C84705 /* ChecklistViewController.swift */,
-				B3531AB2283A59B100C84705 /* Main.storyboard */,
-				B3531AB5283A59B500C84705 /* Assets.xcassets */,
-				B3531AB7283A59B500C84705 /* LaunchScreen.storyboard */,
 				B3531ABA283A59B500C84705 /* Info.plist */,
-				B3771277283BCB950048A55D /* ChecklistItem.swift */,
-				B307CF98283C247900BA3AE0 /* ItemDetailViewController.swift */,
-				B32A2D232842489600F7F2D0 /* AllListsViewController.swift */,
-				B38E54542842583900B0D356 /* Checklist.swift */,
-				B38E5456284260E600B0D356 /* ListDetailViewController.swift */,
-				B32B244C2844CA4D00BB5BB8 /* DataModel.swift */,
+				B3531AAE283A59B100C84705 /* SceneDelegate.swift */,
 			);
 			path = Checklists;
+			sourceTree = "<group>";
+		};
+		B3B8A4DD28467AF800C36248 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B32A2D232842489600F7F2D0 /* AllListsViewController.swift */,
+				B3531AB0283A59B100C84705 /* ChecklistViewController.swift */,
+				B307CF98283C247900BA3AE0 /* ItemDetailViewController.swift */,
+				B38E5456284260E600B0D356 /* ListDetailViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B3B8A4DE28467B0B00C36248 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				B38E54542842583900B0D356 /* Checklist.swift */,
+				B3771277283BCB950048A55D /* ChecklistItem.swift */,
+				B32B244C2844CA4D00BB5BB8 /* DataModel.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		B3B8A4DF28467B1B00C36248 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3531AB5283A59B500C84705 /* Assets.xcassets */,
+				B3531AB7283A59B500C84705 /* LaunchScreen.storyboard */,
+				B3531AB2283A59B100C84705 /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

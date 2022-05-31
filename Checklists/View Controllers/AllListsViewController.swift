@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate {
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
 
     let cellIdentifier: String = "ChecklistCell"
     let checklistSegueIdentifier: String = "ShowChecklist"
@@ -20,7 +20,19 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        
+        navigationController?.delegate = self
+        
+        let index = dataModel.indexOfSelectedChecklist
+        if index >= 0 && index < dataModel.lists.count {
+            let checklist = dataModel.lists[index]
+            performSegue(withIdentifier: checklistSegueIdentifier, sender: checklist)
+        }
     }
 
     // MARK: - tableView overridden methods
@@ -36,6 +48,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataModel.indexOfSelectedChecklist = indexPath.row
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: checklistSegueIdentifier, sender: checklist)
     }
@@ -88,5 +101,12 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
             }
         }
         navigationController?.popViewController(animated: true)
+    }
+    // MARK: - Navigation Controller delegate methods
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        // If navigation controller shows the AllListsView this means user pressed the back button
+        if viewController === self {
+            dataModel.indexOfSelectedChecklist = -1
+        }
     }
 }
