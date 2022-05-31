@@ -16,10 +16,10 @@ class Checklist: Equatable, Codable {
     var items: [ChecklistItem]
     var iconName: String
     
-    init(listItemName name: String) {
+    init(listItemName name: String, listItemIcon iconName: String = "No Icon") {
         self.name = name
         self.items = [ChecklistItem]()
-        self.iconName = "No Icon" // Default icon
+        self.iconName = iconName // Default icon
     }
     
     func countUncheckedItems() -> Int {
