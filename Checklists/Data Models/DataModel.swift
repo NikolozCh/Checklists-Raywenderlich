@@ -12,6 +12,7 @@ class DataModel {
     
     init() {
         loadChecklists()
+        print(dataFilePath())
         registerDefaults()
         handleFirstTime()
     }
@@ -55,6 +56,7 @@ class DataModel {
             do {
                 // Decoding data got from file with ChecklistItem Codable protocol
                 lists = try decoder.decode([Checklist].self, from: dataFromFile)
+                sortChecklists()
             }
             catch {
                 print("Error decoding lists array: \(error.localizedDescription)")
@@ -81,6 +83,13 @@ class DataModel {
             
             indexOfSelectedChecklist = 0
             userDefaults.set(false, forKey: "FirstTime")
+        }
+    }
+    
+    // MARK: - General stuff [sorting]
+    func sortChecklists() {
+        lists.sort { list1, list2 in
+            return list1.name.localizedStandardCompare(list2.name) == .orderedAscending
         }
     }
 }
