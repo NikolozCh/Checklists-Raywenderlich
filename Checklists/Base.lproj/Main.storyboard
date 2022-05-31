@@ -238,7 +238,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="shz-mi-coe" kind="relationship" relationship="rootViewController" id="bPC-6I-NRJ"/>
+                        <segue destination="shz-mi-coe" kind="relationship" relationship="rootViewController" id="foS-mz-FKI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGv-Bo-luN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
