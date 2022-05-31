@@ -140,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="1102" y="833"/>
         </scene>
-        <!--Icon Picker View Controller-->
+        <!--Choose Icon-->
         <scene sceneID="DZ8-40-oFk">
             <objects>
                 <tableViewController id="3rM-U3-VEo" customClass="IconPickerViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +172,7 @@
                             <outlet property="delegate" destination="3rM-U3-VEo" id="RU7-bd-B1d"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rPg-y0-Jjg"/>
+                    <navigationItem key="navigationItem" title="Choose Icon" id="rPg-y0-Jjg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOe-2k-NZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

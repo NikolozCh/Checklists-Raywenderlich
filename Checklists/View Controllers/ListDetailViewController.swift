@@ -57,7 +57,7 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - table view overridden methods
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        return indexPath.section == 1 ? indexPath : nil
     }
     
     // MARK: - text field delegate for enabling/disabling "Done" button
