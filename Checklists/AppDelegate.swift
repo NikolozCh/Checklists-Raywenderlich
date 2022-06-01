@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 
 
@@ -19,11 +19,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error_not in
             if granted {
                 print("We have permission")
+                center.delegate = self
             }
             else {
                 print("User didn't give us the permission")
             }
         })
+        
+        
+//        let content = UNMutableNotificationContent()
+//        content.title = "Hello!"
+//        content.body = "I am the local notification"
+//        content.sound = .default
+//        
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+//        
+//        let req = UNNotificationRequest(identifier: "MyNotificaiton", content: content, trigger: trigger)
+//        center.add(req)
+        
         return true
     }
 
@@ -41,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    // MARK: - User notification delegate
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Received user notification \(notification)")
+    }
 }
 

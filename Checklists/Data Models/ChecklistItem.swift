@@ -8,12 +8,18 @@
 import Foundation
 
 class ChecklistItem: Equatable, Codable {
-    var text: String!
-    var checked: Bool!
-    
+    var text: String
+    var checked: Bool
+    var dueDate: Date
+    var shouldRemind: Bool
+    var itemID: Int
+
     init() {
         text = ""
         checked = false
+        dueDate = Date()
+        shouldRemind = false
+        itemID = DataModel.nextChecklistItem()
     }
     
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
