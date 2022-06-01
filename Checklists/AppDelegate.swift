@@ -15,28 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound], completionHandler: {granted, error_not in
-            if granted {
-                print("We have permission")
-                center.delegate = self
-            }
-            else {
-                print("User didn't give us the permission")
-            }
-        })
-        
-        
-//        let content = UNMutableNotificationContent()
-//        content.title = "Hello!"
-//        content.body = "I am the local notification"
-//        content.sound = .default
-//        
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-//        
-//        let req = UNNotificationRequest(identifier: "MyNotificaiton", content: content, trigger: trigger)
-//        center.add(req)
-        
         return true
     }
 
@@ -56,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     // MARK: - User notification delegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("Received user notification \(notification)")
+        // print("Received user notification \(notification)")
     }
 }
 

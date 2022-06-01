@@ -12,7 +12,6 @@ class DataModel {
     
     init() {
         loadChecklists()
-        print(dataFilePath())
         registerDefaults()
         handleFirstTime()
     }
@@ -43,7 +42,8 @@ class DataModel {
             try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
         }
         catch {
-            print("Error encoding lists array: \(error.localizedDescription)")
+//            print("Error encoding lists array: \(error.localizedDescription)")
+            // do nothing
         }
     }
 
@@ -59,7 +59,8 @@ class DataModel {
                 sortChecklists()
             }
             catch {
-                print("Error decoding lists array: \(error.localizedDescription)")
+                // print("Error decoding lists array: \(error.localizedDescription)")
+                // do nothing
             }
         }
     }

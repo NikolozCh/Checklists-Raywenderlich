@@ -94,4 +94,14 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         doneBarButton.isEnabled = false
         return true
     }
+    
+    // MARK: - IBActions
+    @IBAction func switchToggled(_ sender: UISwitch) {
+        if sender.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound], completionHandler: {_, _ in
+                // do nothing
+            })
+        }
+    }
 }

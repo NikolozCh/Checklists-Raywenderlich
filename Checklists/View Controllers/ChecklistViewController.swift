@@ -78,7 +78,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     ) -> Void {
         let label = cell.viewWithTag(1000) as! UILabel
 //        label.text = item.text
-        label.text = "\(item.itemID): \(item.text)"
+        label.text = item.text
     }
     
     // MARK: - Item Detail View Controller's Delegate functions
