@@ -14,6 +14,7 @@ class DataModel {
         loadChecklists()
         registerDefaults()
         handleFirstTime()
+        handleOldReminders()
     }
     
     var indexOfSelectedChecklist: Int {
@@ -86,7 +87,13 @@ class DataModel {
             userDefaults.set(false, forKey: "FirstTime")
         }
     }
-    
+    func handleOldReminders() {
+        for list in lists {
+            for item in list.items {
+                if item.dueDate < Date() { item.shouldRemind = false }
+            }
+        }
+    }
     // MARK: - General stuff [sorting]
     func sortChecklists() {
         lists.sort { list1, list2 in
