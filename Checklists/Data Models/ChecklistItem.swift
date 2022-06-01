@@ -25,4 +25,11 @@ class ChecklistItem: Equatable, Codable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
         return lhs.text == rhs.text && lhs.checked == rhs.checked
     }
+    
+    // MARK: - Notification related stuff
+    func scheduleNotification() {
+        if shouldRemind && dueDate > Date() {
+            print("We are scheduling it!")
+        }
+    }
 }

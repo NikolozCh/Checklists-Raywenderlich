@@ -27,6 +27,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var itemToEdit: ChecklistItem?
     
@@ -41,6 +43,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            datePicker.date = item.dueDate
+            shouldRemindSwitch.isOn = item.shouldRemind
         }
     }
     
@@ -59,9 +63,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let item = itemToEdit {
             item.text = textField.text!
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         }
         else {
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
