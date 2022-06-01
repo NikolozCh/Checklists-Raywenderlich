@@ -27,6 +27,8 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var shouldRemindSwitch: UISwitch!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var itemToEdit: ChecklistItem?
     
@@ -41,6 +43,13 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Item"
             textField.text = item.text
             doneBarButton.isEnabled = true
+            shouldRemindSwitch.isOn = item.shouldRemind
+            if item.shouldRemind {
+                datePicker.date = item.dueDate
+            }
+            else {
+                datePicker.date = Date()
+            }
         }
     }
     
@@ -59,9 +68,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let item = itemToEdit {
             item.text = textField.text!
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         }
         else {
+            item.shouldRemind = shouldRemindSwitch.isOn
+            item.dueDate = datePicker.date
+            item.scheduleNotification()
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
@@ -83,5 +98,15 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         doneBarButton.isEnabled = false
         return true
+    }
+    
+    // MARK: - IBActions
+    @IBAction func switchToggled(_ sender: UISwitch) {
+        if sender.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound], completionHandler: {_, _ in
+                // do nothing
+            })
+        }
     }
 }

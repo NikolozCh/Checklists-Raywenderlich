@@ -13,12 +13,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        loadChecklistItems()
-        
         title = checkList.name
-        
-//        print("Documents folder is: \(documentsDirectory())")
-//        print("Checklist.plist file is: \(dataFilePath())")
     }
     
     // MARK: - Table View Data Source
@@ -51,13 +46,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         checkList.items.remove(at: indexPath.row)
         
         tableView.deleteRows(at: [indexPath], with: .automatic)
-//        saveChecklistItems()
     }
-    
-//    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-//        print("Accessory Tapped On: \(indexPath.row)")
-//    }
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
     // MARK: - Configuration methods
     func configureCheckmark(
         for cell: UITableViewCell,
@@ -77,7 +69,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         with item: ChecklistItem
     ) -> Void {
         let label = cell.viewWithTag(1000) as! UILabel
+        let dateTimeLabel = cell.viewWithTag(1002) as! UILabel
         label.text = item.text
+        if item.shouldRemind {
+            let dateF = DateFormatter()
+            dateF.dateFormat = "dd/MM/YY HH:mm"
+            dateTimeLabel.text = "Is scheduled for: \(dateF.string(from: item.dueDate))"
+        }
+        else {
+            dateTimeLabel.text = "No reminder scheduled!"
+        }
     }
     
     // MARK: - Item Detail View Controller's Delegate functions
