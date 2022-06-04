@@ -44,9 +44,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         checkList.items.remove(at: indexPath.row)
-        
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
